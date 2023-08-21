@@ -1,0 +1,117 @@
+[System]
+Name='323Project(2)'
+Type='mamdani'
+Version=2.0
+NumInputs=7
+NumOutputs=1
+NumRules=30
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Pupil_Dilation'
+Range=[0 1]
+NumMFs=3
+MF1='Constricted':'trimf',[-0 0 0.4]
+MF2='Normal':'trimf',[0.2 0.5 0.8]
+MF3='Dilated':'trimf',[0.6 1 1]
+
+[Input2]
+Name='Tears'
+Range=[0 1]
+NumMFs=4
+MF1='Dry':'trimf',[0 0 0.15]
+MF2='Medium':'trimf',[0.4 0.625 0.85]
+MF3='High':'trimf',[0.7 1 1]
+MF4='Low':'trimf',[0.1 0.3 0.5]
+
+[Input3]
+Name='Rate_of_Blinking'
+Range=[0 1]
+NumMFs=3
+MF1='Slow':'trimf',[0 0 0.4]
+MF2='Medium':'trimf',[0.2 0.5 0.8]
+MF3='Rapid':'trimf',[0.6 1 1]
+
+[Input4]
+Name='Openness'
+Range=[0 1]
+NumMFs=3
+MF1='Squint':'trimf',[0 0 0.4]
+MF2='Normal':'trimf',[0.2 0.5 0.8]
+MF3='Wide':'trimf',[0.6 1 1]
+
+[Input5]
+Name='Eyebrow_Muscles'
+Range=[0 1]
+NumMFs=3
+MF1='Down':'trimf',[0 0 0.4]
+MF2='Normal':'trimf',[0.2 0.5 0.8]
+MF3='Up':'trimf',[0.6 1 1]
+
+[Input6]
+Name='Eye_Movement'
+Range=[0 1]
+NumMFs=3
+MF1='Slow':'trimf',[0 0 0.4]
+MF2='Normal':'trimf',[0.2 0.5 0.8]
+MF3='Rapid':'trimf',[0.583333333333333 1 1.41666666666667]
+
+[Input7]
+Name='Eye_Redness'
+Range=[0 1]
+NumMFs=4
+MF1='White':'trimf',[0 0 0.15]
+MF2='Medium':'trimf',[0.4 0.625 0.85]
+MF3='High':'trimf',[0.7 1 1]
+MF4='Low':'trimf',[0.1 0.3 0.5]
+
+[Output1]
+Name='Emotion'
+Range=[0 1]
+NumMFs=10
+MF1='Joy':'trimf',[-0.15 0.05 0.25]
+MF2='Sadness':'trimf',[0.55 0.75 0.95]
+MF3='Anger':'trimf',[0.75 0.95 1.15]
+MF4='Anxiety':'trimf',[0.15 0.35 0.55]
+MF5='Confusion':'trimf',[0.25 0.45 0.65]
+MF6='Fear':'trimf',[0.05 0.25 0.45]
+MF7='Surprise':'trimf',[-0.05 0.15 0.35]
+MF8='Relief':'trimf',[0.35 0.55 0.75]
+MF9='Annoyed':'trimf',[0.65 0.85 1.05]
+MF10='Tired':'trimf',[0.45 0.65 0.85]
+
+[Rules]
+3 1 1 1 1 1 1, 1 (1) : 1
+3 -3 2 1 1 1 2, 2 (1) : 1
+1 3 3 1 1 1 3, 2 (1) : 1
+2 1 2 2 2 2 1, 3 (1) : 1
+1 4 2 3 1 1 4, 3 (1) : 1
+1 4 1 3 1 1 -4, 3 (1) : 1
+0 1 2 0 2 1 4, 4 (1) : 1
+0 1 2 0 1 2 2, 4 (1) : 1
+0 4 3 0 1 3 3, 4 (1) : 1
+0 0 2 2 2 2 0, 5 (1) : 1
+0 0 1 2 1 1 0, 5 (1) : 1
+-1 0 1 1 1 1 0, 5 (1) : 1
+2 0 2 0 2 3 0, 6 (1) : 1
+1 -3 1 2 1 3 0, 6 (1) : 1
+1 3 1 3 1 3 -3, 6 (1) : 1
+0 0 2 2 2 2 0, 8 (1) : 1
+0 0 1 2 2 2 0, 8 (1) : 1
+0 4 1 2 3 2 0, 8 (1) : 1
+2 0 2 2 2 0 0, 7 (1) : 1
+3 0 3 3 3 0 0, 7 (1) : 1
+3 4 3 3 3 0 0, 7 (1) : 1
+0 1 2 2 2 2 1, 9 (1) : 1
+0 0 1 1 1 2 4, 9 (1) : 1
+0 0 1 1 1 3 2, 9 (1) : 1
+1 0 1 1 2 1 4, 10 (1) : 1
+1 0 1 1 1 1 2, 10 (1) : 1
+1 0 1 1 1 1 3, 10 (1) : 1
+2 1 0 2 2 1 0, 1 (1) : 1
+2 4 1 1 3 1 0, 1 (1) : 1
+2 4 1 3 3 2 0, 1 (1) : 1
